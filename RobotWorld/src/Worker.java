@@ -14,7 +14,6 @@ public class Worker extends Robot {
 
     }
     @Override
-    protected void makeSound(){
-
     }
 }
+
