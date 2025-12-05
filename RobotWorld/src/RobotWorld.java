@@ -6,6 +6,10 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 public class RobotWorld {
+    /// Workers build buildings, which they can live in. They start with 5 buildings and 20 population. Buildings can hold up to 5 Robots.
+    /// Robots who do not have a building are significantly less likely to charge. Builders build new buildings and fix buildings, Glitches Corrupt Building,
+    //  and spawn from Robots charging in corrupted buildings, and cleaners repair corrupted buildings.
+    /// Just use arraylists of arraylists for the buildings, ie an array list of buildings, with each building being an arraylist
     String[] names = new String[4945];
     File namelist = new File("names.txt");
     Scanner Scn = null;
@@ -43,12 +47,14 @@ public class RobotWorld {
             Bots.removeAll(deadBots);
             newBots.clear();
             deadBots.clear();
+            system.out.printline()
         }
     }
     public RobotWorld(){
         int days = 0;
-        int buildings;
-        int happiness;
+        int buildings = 10;
+        int population;
+        final int robots_per_building = 5;
     }
     public String nameGen(){
         Random random = new Random();
@@ -62,3 +68,4 @@ public class RobotWorld {
         }
     }
 }
+
