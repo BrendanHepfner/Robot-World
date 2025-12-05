@@ -2,14 +2,23 @@ import java.util.Random;
 import java.lang.Math;
 import java.util.ArrayList;
 import java.awt.Robot;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 public class RobotWorld {
-    /// I wasn't sure how much you wanted filled out with this specific one so I did that random loop part because that was clear ///
-    public static void main(String[] args) {
+    String[] names = new String[4945];
+    File namelist = new File("names.txt");
+    Scanner Scn = null;
+    int i = 0;
+    
+    public static void main(String[] args) throws Exception {
         RobotWorld world = new RobotWorld();
         world.robotSim();
     }
 
-    public void robotSim(){
+    public void robotSim() throws Exception{
+        Scn = new Scanner(namelist);
+        nameListCreation();
         int randomNum = (int)(Math.random()*4);
         ArrayList<Robot> newBots = new ArrayList<>();
         ArrayList<Robot> deadBots = new ArrayList<>();
@@ -42,7 +51,14 @@ public class RobotWorld {
         int happiness;
     }
     public String nameGen(){
-        String Name = "placeholder";
+        Random random = new Random();
+        String Name = names[random.nextInt(4945)] + " " + names[random.nextInt(4945)];
         return Name;
+    }
+    public void nameListCreation(){
+        while (Scn.hasNextLine()){
+            names[i] = Scn.nextLine();
+            i++;
+        }
     }
 }
