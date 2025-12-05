@@ -1,4 +1,4 @@
-public abstract class Robot {
+public abstract class Robot 
     /// dissasemble is die and assemble is reproduce ///
     protected int charge;
     public void disassemble(){
@@ -8,6 +8,5 @@ public abstract class Robot {
     }
     public void recharge(){
 
-    }
-    protected abstract void makeSound();
 }
+
