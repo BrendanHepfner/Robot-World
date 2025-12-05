@@ -15,7 +15,6 @@ public class Glitch extends Robot{
 
     }
     @Override
-    protected void makeSound(){
-
     }
 }
+
