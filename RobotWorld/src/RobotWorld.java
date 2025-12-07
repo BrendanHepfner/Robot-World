@@ -1,7 +1,6 @@
 import java.util.Random;
 import java.lang.Math;
 import java.util.ArrayList;
-import java.awt.Robot;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -68,4 +67,5 @@ public class RobotWorld {
         }
     }
 }
+
 
