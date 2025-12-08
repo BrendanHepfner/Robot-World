@@ -1,66 +1,42 @@
 public class Building {
-    protected boolean is_corrupted = false;
-    protected boolean isFull = false;
-    protected Robot One = null;
-    protected Robot Two = null;
-    protected Robot Three = null;
-    protected Robot Four = null;
-    protected Robot Five = null;
+    protected boolean isCorrupted = false;
+    protected Robot[] robots = new Robot[5]; // store up to 5 robots
 
     public boolean houseRobot(Robot robo) {
-        if (!isFull) { 
-            if (this.One == null) {
-                this.One = robo;
+        for (int i = 0; i < robots.length; i++) {
+            if (robots[i] == null) {
+                robots[i] = robo;
                 return true;
-            } else if (this.Two == null) {
-                this.Two = robo;
-                return true;
-            } else if (this.Three == null) {
-                this.Three = robo;
-                return true;
-            } else if (this.Four == null) {
-                this.Four = robo;
-                return true;
-            } else if (this.Five == null) {
-                this.Five = robo;
-                return true;
-            } else {
-                isFull = true;
-                return false;
             }
-        } else {
-            return false;
         }
+        return false; // building is full
     }
 
     public void removeRobot(Robot robo) {
-        if (this.One == robo) {
-            this.One = null;
-        } else if (this.Two == robo) {
-            this.Two = null;
-        } else if (this.Three == robo) {
-            this.Three = null;
-        } else if (this.Four == robo) {
-            this.Four = null;
-        } else if (this.Five == robo) {
-            this.Five = null;
+        for (int i = 0; i < robots.length; i++) {
+            if (robots[i] == robo) {
+                robots[i] = null;
+                break;
+            }
         }
-        isFull = false;
     }
 
     public boolean checkCorruption() {
-        return is_corrupted;
+        return isCorrupted;
     }
 
     public boolean checkFull() {
-        return isFull;
+        for (Robot r : robots) {
+            if (r == null) return false;
+        }
+        return true;
     }
 
-    public void Corrupt() {
-        is_corrupted = true;
+    public void corrupt() {
+        isCorrupted = true;
     }
 
-    public void Clean() {
-        is_corrupted = false;
+    public void clean() {
+        isCorrupted = false;
     }
 }
