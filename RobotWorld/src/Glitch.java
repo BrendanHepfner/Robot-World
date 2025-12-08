@@ -23,6 +23,8 @@ public class Glitch extends Robot {
             Building b = buildings.get(rand.nextInt(buildings.size()));
             b.Corrupt();
             System.out.println("Glitch corrupted a building!");
+            this.charge == this.charge - 25;
         }
     }
 }
+
