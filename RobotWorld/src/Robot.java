@@ -1,12 +1,18 @@
 public abstract class Robot 
-    /// dissasemble is die and assemble is reproduce ///
+    /// disassemble is die and assemble is reproduce ///
+{
     protected int charge;
-    public void disassemble(){
 
+    public void disassemble() {
+        /// Robot dies ///
+        charge = 0;
     }
-    public Robot assemble(String Name){
-    }
-    public void recharge(){
 
+    public abstract Robot assemble(String Name);
+
+    public void recharge() {
+        /// Fully restore charge ///
+        charge = 100;
+        System.out.println(this.getClass().getSimpleName() + " recharged.");
+    }
 }
-
