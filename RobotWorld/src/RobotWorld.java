@@ -47,6 +47,13 @@ public class RobotWorld {
             Bots.add(c);
             assignToBuilding(c);
         }
+
+        // initialize 2 starting glitches
+        for (int k = 0; k < 2; k++) {
+            Glitch g = new Glitch();
+            Bots.add(g);
+            assignToBuilding(g);
+        }
     }
 
     public void robotSim() throws Exception {
@@ -59,7 +66,7 @@ public class RobotWorld {
 
         boolean keepgoing = true;
 
-        while (keepgoing && turn <= 20) { // run 20 turns
+        while (keepgoing && turn <= 80) { // run 80 turns
             System.out.println("\n--- Turn " + turn + " ---");
 
             for (Robot b : Bots) {
@@ -154,3 +161,4 @@ public class RobotWorld {
         }
     }
 }
+
