@@ -51,10 +51,21 @@ public abstract class Robot
     public abstract Robot assemble(String Name);
 
     public void recharge() {
-        /// Fully restore charge ///
-        this.charge = 100;
+        boolean canCharge = true;
+        /// Fully restore charge, unless in a corrupted building ///
+        for (Building b : buildings) {
+            if (b.One == r || b.Two == r || b.Three == r || b.Four == r || b.Five == r)
+                if (b.checkCorruption()){
+                    this.charge = 75;
+                    canCharge = false;
+                }
+        }
+        if (canCharge = true){
+            this.charge = 100;
+        }
         System.out.println(this.getClass().getSimpleName() + " recharged.");
     }
 }
+
 
 
