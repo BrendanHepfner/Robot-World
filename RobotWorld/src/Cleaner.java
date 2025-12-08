@@ -15,7 +15,10 @@ public class Cleaner extends Robot {
     @Override
     public Robot assemble(String Name) {
         // cleaners can “spawn” a new cleaner robot
+        if (this.charge > 49){
         return new Cleaner();
+        this.charge = this.charge - 50;
+        }
     }
 
     @Override
@@ -25,11 +28,14 @@ public class Cleaner extends Robot {
 
     public void clean(ArrayList<Building> buildings) {
         // repairs the first corrupted building found
-        for (Building b : buildings) {
-            if (b.checkCorruption()) {
-                b.Clean();
-                System.out.println("Cleaner repaired a building.");
-                return;
+        if (this.charge > 24){
+            for (Building b : buildings) {
+                if (b.checkCorruption()) {
+                    b.Clean();
+                    System.out.println("Cleaner repaired a building.");
+                    this.charge = this.charge - 25;
+                    return;
+                }
             }
         }
     }
