@@ -31,7 +31,7 @@ public abstract class Robot
                 return false;
             }
         }
-        else if (this.charge < 25){
+        else if (this.charge < 75){
             if (random.nextDouble() < 0.25){
                 return true;
             }
@@ -56,4 +56,5 @@ public abstract class Robot
         System.out.println(this.getClass().getSimpleName() + " recharged.");
     }
 }
+
 
