@@ -8,7 +8,10 @@ public class Builder extends Robot {
 
     @Override
     public Robot assemble(String Name) {
-        return new Builder();
+        if (this.charge > 49){
+            this.charge = this.charge - 50;
+            return new Builder();
+        }
     }
 
     @Override
@@ -17,7 +20,11 @@ public class Builder extends Robot {
     }
 
     public void build(ArrayList<Building> buildings) {
-        buildings.add(new Building());
-        System.out.println("Builder created a new building!");
+        if (this.charge > 24)
+            this.charge = this.charge - 25;
+            buildings.add(new Building());
+            System.out.println("Builder created a new building!");
+        }
     }
 }
+
