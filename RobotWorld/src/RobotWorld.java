@@ -9,6 +9,7 @@ public class RobotWorld {
     /// Robots who do not have a building are significantly less likely to charge. Builders build new buildings, Glitches Corrupt Building,
     //  and spawn from Robots charging in corrupted buildings, and cleaners repair corrupted buildings.
     /// Just use arraylists of arraylists for the buildings, ie an array list of buildings, with each building being an arraylist
+
     String[] names = new String[4945];
     File namelist = new File("names.txt");
     Scanner Scn = null;
@@ -28,16 +29,23 @@ public class RobotWorld {
         int buildingsCount = 5;
         final int robots_per_building = 5;
 
-        // Initialize buildings
+        // initialize buildings
         for (int b = 0; b < buildingsCount; b++) {
             buildings.add(new Building());
         }
 
-        // Initialize robots: 20 Workers
+        // initialize robots: 20 Workers
         for (int r = 0; r < 20; r++) {
             Worker w = new Worker();
             Bots.add(w);
             assignToBuilding(w);
+        }
+
+        // optionally add 2 Cleaners
+        for (int k = 0; k < 2; k++) {
+            Cleaner c = new Cleaner();
+            Bots.add(c);
+            assignToBuilding(c);
         }
     }
 
@@ -66,11 +74,12 @@ public class RobotWorld {
                 if (randomNum == 0) {
                     b.recharge();
                 } else if (randomNum == 1) {
-                    Robot newRobot = b.assemble(nameGen());
+                    String newName = nameGen();
+                    Robot newRobot = b.assemble(newName);
                     if (newRobot != null) {
                         newBots.add(newRobot);
                         assignToBuilding(newRobot);
-                        System.out.println("New robot assembled: " + nameGen());
+                        System.out.println("New robot assembled: " + newName);
                     }
                 } else if (randomNum == 2) {
                     if (b instanceof Glitch) {
@@ -79,6 +88,8 @@ public class RobotWorld {
                         ((Worker) b).fix(buildings);
                     } else if (b instanceof Builder) {
                         ((Builder) b).build(buildings);
+                    } else if (b instanceof Cleaner) {
+                        ((Cleaner) b).clean(buildings);
                     }
                 } else {
                     deadBots.add(b);
