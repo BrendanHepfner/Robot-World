@@ -34,11 +34,18 @@ public class RobotWorld {
             buildings.add(new Building());
         }
 
-        // initialize robots: 20 Workers
-        for (int r = 0; r < 20; r++) {
+        // initialize robots: 15 Workers
+        for (int r = 0; r < 15; r++) {
             Worker w = new Worker();
             Bots.add(w);
             assignToBuilding(w);
+        }
+
+        // initialize robots: 5 Builders
+        for (int r = 0; r < 15; r++) {
+            Builder b = new b();
+            Bots.add(b);
+            assignToBuilding(b);
         }
 
         // optionally add 2 Cleaners
@@ -161,4 +168,5 @@ public class RobotWorld {
         }
     }
 }
+
 
