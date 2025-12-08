@@ -9,7 +9,7 @@ public class Cleaner extends Robot {
 
     @Override
     public Robot assemble(String Name) {
-        // Cleaners can “spawn” a new Cleaner robot
+        // cleaners can “spawn” a new cleaner robot
         return new Cleaner();
     }
 
@@ -19,7 +19,7 @@ public class Cleaner extends Robot {
     }
 
     public void clean(ArrayList<Building> buildings) {
-        // Repairs the first corrupted building found
+        // repairs the first corrupted building found
         for (Building b : buildings) {
             if (b.checkCorruption()) {
                 b.Clean();

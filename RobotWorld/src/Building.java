@@ -8,7 +8,7 @@ public class Building {
     protected Robot Five = null;
 
     public boolean houseRobot(Robot robo) {
-        if (!isFull) { // fixed assignment bug
+        if (!isFull) { 
             if (this.One == null) {
                 this.One = robo;
                 return true;
@@ -49,22 +49,18 @@ public class Building {
     }
 
     public boolean checkCorruption() {
-        /// Checks if the building is corrupted, returns true if so ///
         return is_corrupted;
     }
 
     public boolean checkFull() {
-        /// Checks if the building is full, returns true if so ///
         return isFull;
     }
 
     public void Corrupt() {
-        /// Sets the building as corrupted ///
         is_corrupted = true;
     }
 
     public void Clean() {
-        /// Sets the building to not be corrupted ///
         is_corrupted = false;
     }
 }
