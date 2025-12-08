@@ -2,6 +2,11 @@ import java.util.ArrayList;
 
 public class Cleaner extends Robot {
 
+
+// not sure if this is how we want to implement the cleaner class or not
+// but this was my attempt, let me know if it's what you guys had in mind
+// i'm just going off of the existing code that i saw...
+
     @Override
     public void disassemble() {
         super.disassemble();
