@@ -9,7 +9,10 @@ public class Glitch extends Robot {
 
     @Override
     public Robot assemble(String Name) {
+        if (this.charge > 49){
         return new Glitch();
+        this.charge = this.charge - 50;
+        }
     }
 
     @Override
@@ -19,7 +22,7 @@ public class Glitch extends Robot {
 
     public void corrupt(ArrayList<Building> buildings) {
         Random rand = new Random();
-        if (!buildings.isEmpty()) {
+        if (!buildings.isEmpty() && this.charge > 24) {
             Building b = buildings.get(rand.nextInt(buildings.size()));
             b.Corrupt();
             System.out.println("Glitch corrupted a building!");
@@ -27,4 +30,5 @@ public class Glitch extends Robot {
         }
     }
 }
+
 
