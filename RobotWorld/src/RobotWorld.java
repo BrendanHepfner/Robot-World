@@ -106,10 +106,11 @@ public class RobotWorld {
                         ((Cleaner) b).clean(buildings);
                     }
                 } else {
-                    deadBots.add(b);
-                    removeFromBuilding(b);
-                    b.disassemble();
-                    System.out.println("A robot disassembled.");
+                    if (b.disassemble() == true){
+                        deadBots.add(b);
+                        removeFromBuilding(b);
+                        System.out.println("A robot disassembled.");
+                    }
                 }
             }
 
@@ -168,5 +169,6 @@ public class RobotWorld {
         }
     }
 }
+
 
 
