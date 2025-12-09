@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Robot 
@@ -17,7 +18,7 @@ public abstract class Robot
             }
             else{
                 this.charge = 0;
-                system.out.println("Robot survived a malfunction");
+                System.out.println("Robot survived a malfunction");
                 return false;
             }
         }
@@ -27,7 +28,7 @@ public abstract class Robot
             }
             else{
                 this.charge = 0;
-                system.out.println("Robot survived a malfunction");
+                System.out.println("Robot survived a malfunction");
                 return false;
             }
         }
@@ -37,35 +38,29 @@ public abstract class Robot
             }
             else{
                 this.charge = 0;
-                system.out.println("Robot survived a malfunction");
+                System.out.println("Robot survived a malfunction");
                 return false;
             }
         }
         else{
             this.charge = 0;
-            system.out.println("Robot survived a malfunction");
+            System.out.println("Robot survived a malfunction");
             return false;
         }
     }
 
     public abstract Robot assemble(String Name);
 
-    public void recharge() {
+    public void recharge(boolean corrupted) {
         boolean canCharge = true;
         /// Fully restore charge, unless in a corrupted building ///
-        for (Building b : buildings) {
-            if (b.One == r || b.Two == r || b.Three == r || b.Four == r || b.Five == r)
-                if (b.checkCorruption()){
-                    this.charge = 75;
-                    canCharge = false;
-                }
+        if (corrupted){
+            this.charge = 75;
+            canCharge = false;
         }
-        if (canCharge = true){
+        if (canCharge == true){
             this.charge = 100;
         }
         System.out.println(this.getClass().getSimpleName() + " recharged.");
     }
 }
-
-
-
