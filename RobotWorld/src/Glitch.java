@@ -3,21 +3,22 @@ import java.util.Random;
 
 public class Glitch extends Robot {
     @Override
-    public void disassemble() {
-        super.disassemble();
+    public boolean disassemble() {
+        return super.disassemble();
     }
 
     @Override
     public Robot assemble(String Name) {
         if (this.charge > 49){
-        return new Glitch();
-        this.charge = this.charge - 50;
+            this.charge = this.charge - 50;
+            return new Glitch();
         }
+        return null;
     }
 
     @Override
-    public void recharge() {
-        super.recharge();
+    public void recharge(boolean corrupt) {
+        super.recharge(corrupt);
     }
 
     public void corrupt(ArrayList<Building> buildings) {
@@ -26,9 +27,7 @@ public class Glitch extends Robot {
             Building b = buildings.get(rand.nextInt(buildings.size()));
             b.Corrupt();
             System.out.println("Glitch corrupted a building!");
-            this.charge == this.charge - 25;
+            this.charge = this.charge - 25;
         }
     }
 }
-
-
