@@ -8,22 +8,23 @@ public class Cleaner extends Robot {
 // i'm just going off of the existing code that i saw...
 
     @Override
-    public void disassemble() {
-        super.disassemble();
+    public boolean disassemble() {
+        return super.disassemble();
     }
 
     @Override
-    public Robot assemble(String Name) {
+    public Cleaner assemble(String Name) {
         // cleaners can “spawn” a new cleaner robot
         if (this.charge > 49){
-        return new Cleaner();
-        this.charge = this.charge - 50;
+            this.charge = this.charge - 50;
+            return new Cleaner();
         }
+        return null;
     }
 
     @Override
-    public void recharge() {
-        super.recharge();
+    public void recharge(boolean corrupt) {
+        super.recharge(corrupt);
     }
 
     public void clean(ArrayList<Building> buildings) {
