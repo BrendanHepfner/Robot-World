@@ -21,10 +21,11 @@ public class Builder extends Robot {
     }
 
     public void build(ArrayList<Building> buildings) {
-        if (this.charge > 24)
+        if (this.charge > 24) {
             this.charge = this.charge - 25;
             buildings.add(new Building());
             System.out.println("Builder created a new building!");
         }
     }
 }
+
