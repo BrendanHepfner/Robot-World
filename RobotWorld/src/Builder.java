@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Builder extends Robot {
     @Override
-    public void disassemble() {
-        super.disassemble();
+    public boolean disassemble() {
+        return super.disassemble();
     }
 
     @Override
@@ -12,11 +12,12 @@ public class Builder extends Robot {
             this.charge = this.charge - 50;
             return new Builder();
         }
+        return null;
     }
 
     @Override
-    public void recharge() {
-        super.recharge();
+    public void recharge(boolean corrupt) {
+        super.recharge(corrupt);
     }
 
     public void build(ArrayList<Building> buildings) {
@@ -27,4 +28,3 @@ public class Builder extends Robot {
         }
     }
 }
-
