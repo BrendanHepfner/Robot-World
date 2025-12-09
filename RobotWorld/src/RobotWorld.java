@@ -43,7 +43,7 @@ public class RobotWorld {
 
         // initialize robots: 5 Builders
         for (int r = 0; r < 15; r++) {
-            Builder b = new b();
+            Builder b = new Builder();
             Bots.add(b);
             assignToBuilding(b);
         }
@@ -86,7 +86,14 @@ public class RobotWorld {
                 }
 
                 if (randomNum == 0) {
-                    b.recharge();
+                    for (Building build : buildings) {
+                        if ((build.One == b || build.Two == b || build.Three == b || build.Four == b || build.Five == b) && build.is_corrupted){
+                            b.recharge(true);
+                        }
+                        else{
+                            b.recharge(false);
+                        }
+                    }
                 } else if (randomNum == 1) {
                     String newName = nameGen();
                     Robot newRobot = b.assemble(newName);
@@ -169,6 +176,9 @@ public class RobotWorld {
         }
     }
 }
+
+
+
 
 
 
