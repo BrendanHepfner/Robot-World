@@ -26,7 +26,7 @@ public class RobotWorld {
 
     public RobotWorld() {
         int days = 0;
-        int buildingsCount = 5;
+        int buildingsCount = 10;
         final int robots_per_building = 5;
 
         // initialize buildings
@@ -42,11 +42,11 @@ public class RobotWorld {
         }
 
         // initialize robots: 5 Builders
-        for (int r = 0; r < 15; r++) {
-            Builder b = new Builder();
-            Bots.add(b);
-            assignToBuilding(b);
-        }
+        //for (int r = 0; r < 15; r++) {
+            //Builder b = new Builder();
+            //Bots.add(b);
+            //assignToBuilding(b);
+        //}
 
         // optionally add 2 Cleaners
         for (int k = 0; k < 2; k++) {
@@ -176,6 +176,7 @@ public class RobotWorld {
         }
     }
 }
+
 
 
 
