@@ -1,42 +1,79 @@
 public class Building {
-    protected boolean isCorrupted = false;
-    protected Robot[] robots = new Robot[5]; // store up to 5 robots
-
-    public boolean houseRobot(Robot robo) {
-        for (int i = 0; i < robots.length; i++) {
-            if (robots[i] == null) {
-                robots[i] = robo;
+    protected boolean is_corrupted = false;
+    protected boolean isFull = false;
+    protected Robot One = null;
+    protected Robot Two = null;
+    protected Robot Three = null;
+    protected Robot Four = null;
+    protected Robot Five = null;
+    
+    public boolean houseRobot(Robot robo){
+        if (isFull = false){
+            if (this.One == null) {
+                this.One = robo;
                 return true;
             }
-        }
-        return false; // building is full
-    }
-
-    public void removeRobot(Robot robo) {
-        for (int i = 0; i < robots.length; i++) {
-            if (robots[i] == robo) {
-                robots[i] = null;
-                break;
+            else if (this.Two == null) {
+                this.Two = robo;
+                return true;
+            }
+            else if (this.Three == null) {
+                this.Three = robo;
+                return true;
+            }
+            else if(this.Four == null){
+                this.Four = robo;
+                return true;
+            }
+            else if(this.Five == null){
+                this.Five = robo;
+                return true;
+            }
+            else{
+                isFull = true;
+                return false;
             }
         }
-    }
-
-    public boolean checkCorruption() {
-        return isCorrupted;
-    }
-
-    public boolean checkFull() {
-        for (Robot r : robots) {
-            if (r == null) return false;
+        else{
+            return false;
         }
-        return true;
+    }
+    public void removeRobot(Robot robo){
+        if (this.One == robo) {
+            this.One = null;
+        }
+        else if (this.Two == robo) {
+            this.Two = null;
+        }
+        else if (this.Three == robo){
+            this.Three = null;
+        }
+        else if (this.Four == robo){
+            this.Four = null;
+        }
+        else if (this.Five == robo){
+            this.Five = null;
+        }
+        isFull = false;
+    }
+    
+
+    public boolean checkCorruption(){
+        /// Checks if the building is corrupted, returns true if so ///
+        return is_corrupted;
     }
 
-    public void corrupt() {
-        isCorrupted = true;
+    public boolean checkFull(){
+        /// Checks if the building is full, returns true if so ///
+        return isFull;
+    }
+    public void Corrupt(){
+        /// Sets the building as corrupted ///
+        is_corrupted = true;
     }
 
-    public void clean() {
-        isCorrupted = false;
+    public void Clean(){
+        /// Sets the building to not be corrupted ///
+        is_corrupted = false;
     }
 }
