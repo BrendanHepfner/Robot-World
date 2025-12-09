@@ -24,8 +24,10 @@ public class Builder extends Robot {
         if (this.charge > 24) {
             this.charge = this.charge - 25;
             buildings.add(new Building());
+        } else {
             System.out.println("Builder created a new building!");
         }
     }
 }
+
 
