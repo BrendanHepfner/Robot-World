@@ -4,8 +4,8 @@ import java.util.Random;
 public class Worker extends Robot {
     // I feel that workers should be much less efficient cleanrs, so they will not always clear corruption
     @Override
-    public void disassemble() {
-        super.disassemble();
+    public boolean disassemble() {
+        return super.disassemble();
     }
 
     @Override
@@ -14,11 +14,12 @@ public class Worker extends Robot {
             this.charge = this.charge - 50;
             return new Worker();
         }
+        return null;
     }
 
     @Override
-    public void recharge() {
-        super.recharge();
+    public void recharge(boolean corrupt) {
+        super.recharge(corrupt);
     }
 
     public void fix(ArrayList<Building> buildings) {
@@ -39,4 +40,3 @@ public class Worker extends Robot {
         }
     }
 }
-
